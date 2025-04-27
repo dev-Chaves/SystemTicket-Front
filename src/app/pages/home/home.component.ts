@@ -7,7 +7,7 @@ import { LoginComponent } from '../../components/sem-loggar/login/login.componen
   imports: [HeaderComponent, LoginComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
-})
+} )
 export class HomeComponent {
 
 }
