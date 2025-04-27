@@ -1,59 +1,110 @@
-# Frontend
+# SystemTicket API - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Este projeto foi gerado utilizando o [Angular CLI](https://github.com/angular/angular-cli) versão 19.2.8.
 
-## Development server
+## Objetivo
 
-To start a local development server, run:
+O objetivo deste projeto é desenvolver o layout da **SystemTicket API** utilizando as seguintes tecnologias e recursos:
+
+- **Mocks** para simulação de dados.
+- Código **Backend** em Java, disponível no repositório: [https://github.com/dev-Chaves/systemTicket](https://github.com/dev-Chaves/systemTicket).
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+
+- [Node.js](https://nodejs.org/) (versão compatível com Angular CLI 19.2.8)
+- [Angular CLI](https://angular.dev/tools/cli) instalado globalmente:
+  ```bash
+  npm install -g @angular/cli@19.2.8
+  ```
+
+## Instalação
+
+1. Clone este repositório:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd system-ticket-frontend
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+## Servidor de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento local, execute:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse `http://localhost:4200/` no navegador. A aplicação será recarregada automaticamente ao alterar os arquivos fonte.
 
-## Code scaffolding
+## Geração de Código
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para criar novos componentes, diretivas ou outros esquemas, use o Angular CLI. Exemplo para criar um componente:
 
 ```bash
-ng generate component component-name
+ng generate component nome-do-componente
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para listar todos os esquemas disponíveis, execute:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## Build
 
-To build the project run:
+Para compilar o projeto para produção, execute:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os artefatos de build serão gerados no diretório `dist/`, otimizados para desempenho.
 
-## Running unit tests
+## Testes Unitários
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Execute os testes unitários com o [Karma](https://karma-runner.github.io):
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Testes End-to-End
 
-For end-to-end (e2e) testing, run:
+Para testes end-to-end (e2e), execute:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**Nota**: O Angular CLI não inclui um framework de testes e2e por padrão. Configure um framework como [Cypress](https://www.cypress.io/) ou [Playwright](https://playwright.dev/) se necessário.
 
-## Additional Resources
+## Contribuição
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature:
+   ```bash
+   git checkout -b feature/nova-funcionalidade
+   ```
+3. Commit suas alterações:
+   ```bash
+   git commit -m "Adiciona nova funcionalidade"
+   ```
+4. Envie para o repositório remoto:
+   ```bash
+   git push origin feature/nova-funcionalidade
+   ```
+5. Abra um Pull Request.
+
+## Recursos Adicionais
+
+- [Documentação do Angular CLI](https://angular.dev/tools/cli)
+- [Documentação do Angular](https://angular.dev/)
+- [Repositório do Backend](https://github.com/dev-Chaves/systemTicket)
