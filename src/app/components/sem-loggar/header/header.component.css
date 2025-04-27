@@ -1,9 +1,26 @@
 h1{
     font-size: 24px;
     font-weight: bold;
-    color: #000;
+    color: var(--primary-color);
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
     text-transform: uppercase;
+}
+
+img{
+    width: 80px;
+    height: auto;
+}
+
+#header-content{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 80px;
+}
+
+#header-content-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
