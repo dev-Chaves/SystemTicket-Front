@@ -1,1 +1,12 @@
-<p>register works!</p>
+<div class="register-content">
+    <div id="register-content-form">
+        <h1>Sign-up</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+           <input type="text" placeholder="Insira seu usuário" formControlName="usersName">
+           <input type="password" placeholder="*******" formControlName="password">
+           <input type="text" placeholder="Insira o token" formControlName="token"> 
+           <button type="submit">Registrar</button>
+        </form>
+    </div>
+</div>
+
