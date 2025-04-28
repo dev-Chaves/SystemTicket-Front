@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent {
-
+  
 }

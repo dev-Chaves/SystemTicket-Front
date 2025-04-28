@@ -1,1 +1,21 @@
 <p>ticket-list works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Criado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of tickets">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.title}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+        </tr>
+    </tbody>
+</table>
