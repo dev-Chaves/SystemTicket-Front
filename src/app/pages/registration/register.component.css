@@ -1,0 +1,14 @@
+#register-page{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 120 px;
+}
+
+#register-page-content{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
