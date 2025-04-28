@@ -31,3 +31,9 @@ button:hover{
     background-color: #232323;
     border-color: #232323;
 }
+
+h1{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
