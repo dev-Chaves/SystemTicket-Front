@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -13,8 +14,11 @@ export interface Ticket {
   providedIn: 'root'
 })
 
-
 export class TicketService {
+
+  private apiUrl = "http://localhost:8080/api/tickets";
+
+  constructor(private http: HttpClient) {}
 
   private tickets: Ticket[] = [
     {
@@ -37,5 +41,4 @@ export class TicketService {
     return of(this.tickets);
   }
 
-  constructor() { }
 }
