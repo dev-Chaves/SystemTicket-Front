@@ -1,9 +1,9 @@
 <div id="login-content">
     <div id="login-content-form">
-        <h1>Login</h1>
+        <h1>Sign-in</h1>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-           <input type="text" placeholder="Insira seu usuário">
-           <input type="password" placeholder="*******"> 
+           <input type="text" placeholder="Insira seu usuário" formControlName="usersName">
+           <input type="password" placeholder="*******" formControlName="password"> 
            <button type="submit">Entrar</button>
         </form>
     </div>
