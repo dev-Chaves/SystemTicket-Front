@@ -5,3 +5,10 @@
     justify-content: center;
     height: 100vh;
 }
+
+.container-dashboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
