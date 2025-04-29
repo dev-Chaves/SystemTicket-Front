@@ -1,0 +1,39 @@
+<div class="sidebar-container">
+    <div class="sidebar-header">
+        <h2>Menu</h2>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <!-- Admin Options -->
+        <div class="nav-section" *ngIf="isAdmin">
+            <h3 class="section-title">Administração</h3>
+            <ul class="nav-list">
+                <li class="nav-item" (click)="navigateTo('create-user')">
+                    <div class="nav-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <span>Criar Usuário</span>
+                </li>
+                <li class="nav-item" (click)="navigateTo('create-ticket')">
+                    <div class="nav-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <span>Criar Ticket</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Common Options -->
+        <div class="nav-section">
+            <h3 class="section-title">Tickets</h3>
+            <ul class="nav-list">
+                <li class="nav-item" (click)="navigateTo('tickets')">
+                    <div class="nav-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <span>Meus Tickets</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div> 
