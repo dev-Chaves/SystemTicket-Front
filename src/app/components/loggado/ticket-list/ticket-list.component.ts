@@ -16,4 +16,8 @@ export class TicketListComponent implements OnInit{
   ngOnInit(): void {
     this.ticketService.getTickets().subscribe((tickets) => this.tickets = tickets);
   }
+
+  openCreateTicketModal() {
+    console.log('Opening create ticket modal');
+  }
 }
