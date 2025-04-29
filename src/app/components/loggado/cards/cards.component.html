@@ -1,0 +1,43 @@
+<div class="cards-container">
+    <div class="filter-cards">
+        <div class="filter-card" (click)="filterByStatus('open')">
+            <div class="card-icon">
+                <i class="fas fa-ticket-alt"></i>
+            </div>
+            <div class="card-content">
+                <h3>Open Tickets</h3>
+                <p>View all open tickets</p>
+            </div>
+        </div>
+
+        <div class="filter-card" (click)="filterByStatus('closed')">
+            <div class="card-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="card-content">
+                <h3>Closed Tickets</h3>
+                <p>View all closed tickets</p>
+            </div>
+        </div>
+
+        <div class="filter-card" (click)="filterByPriority('high')">
+            <div class="card-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="card-content">
+                <h3>High Priority</h3>
+                <p>View high priority tickets</p>
+            </div>
+        </div>
+
+        <div class="filter-card" (click)="filterByPriority('medium')">
+            <div class="card-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="card-content">
+                <h3>Medium Priority</h3>
+                <p>View medium priority tickets</p>
+            </div>
+        </div>
+    </div>
+</div>
