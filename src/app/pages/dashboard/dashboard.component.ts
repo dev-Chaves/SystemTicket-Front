@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { TicketListComponent } from '../../components/loggado/ticket-list/ticket-list.component';
+import { SidebarComponent } from '../../components/loggado/sidebar/sidebar.component';
 import { CardsComponent } from '../../components/loggado/cards/cards.component';
+import { TicketListComponent } from '../../components/loggado/ticket-list/ticket-list.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [
-    TicketListComponent, 
-    CardsComponent
-  ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css'],
+  imports: [SidebarComponent, CardsComponent, TicketListComponent, CardsComponent, SidebarComponent],
+  standalone: true
 })
 export class DashboardComponent {
 
