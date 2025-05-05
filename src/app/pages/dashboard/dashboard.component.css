@@ -42,3 +42,31 @@
         padding: 0;
     }
 }
+
+.header-actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.create-ticket-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.create-ticket-btn:hover {
+    background-color: #0056b3;
+}
+
+.create-ticket-btn i {
+    font-size: 0.9rem;
+}
