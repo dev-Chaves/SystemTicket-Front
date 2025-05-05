@@ -1,11 +1,24 @@
 <div class="ticket-list-container">
     <div class="ticket-header">
+        <div class="search-container">
+            <input 
+                type="text" 
+                [(ngModel)]="searchTerm" 
+                (ngModelChange)="filterTickets()"
+                placeholder="Buscar tickets por título..."
+                class="search-input"
+            >
+        </div>
         <button class="create-ticket-btn" (click)="openModal()">
             <i class="fas fa-plus"></i>
             Criar Ticket
         </button>
     </div>
     
+    <div class="notification" *ngIf="showNotification" [class.error]="notificationMessage.includes('Erro')">
+        {{ notificationMessage }}
+    </div>
+
     <table>
         <thead>
             <tr>
@@ -14,15 +27,36 @@
                 <th>Descrição</th>
                 <th>Status</th>
                 <th>Criado em</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let ticket of tickets">
+            <tr *ngFor="let ticket of filteredTickets">
                 <td>{{ticket.id}}</td>
                 <td>{{ticket.title}}</td>
                 <td>{{ticket.description}}</td>
-                <td>{{ticket.status}}</td>
+                <td>
+                    <select 
+                        [ngModel]="ticket.status"
+                        (ngModelChange)="onStatusChange(ticket.id, $event)"
+                        [disabled]="ticket.status === 'Fechado'"
+                        class="status-select"
+                    >
+                        <option *ngFor="let status of statusOptions" [value]="status">
+                            {{status}}
+                        </option>
+                    </select>
+                </td>
                 <td>{{ticket.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>
+                    <button 
+                        *ngIf="ticket.status !== 'Fechado'"
+                        class="close-btn" 
+                        (click)="openCloseModal(ticket.id)"
+                    >
+                        <i class="fas fa-times"></i> Fechar
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -33,3 +67,9 @@
     (closeModal)="closeModal()"
     (ticketCreated)="onTicketCreated($event)">
 </app-modal>
+
+<app-close-ticket-modal
+    *ngIf="showCloseModal"
+    (closeModal)="closeCloseModal()"
+    (confirmClose)="onCloseTicket($event)">
+</app-close-ticket-modal>

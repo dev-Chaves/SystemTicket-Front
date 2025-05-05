@@ -2,12 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
+export type TicketStatus = 'Aberto' | 'Em Progresso' | 'Fechado';
+
 export interface Ticket {
   id: number;
   title: string;
   description: string;
-  status: string;
+  status: TicketStatus;
   createdAt: Date;
+  closedAt?: Date;
+  closingComment?: string;
 }
 
 @Injectable({
@@ -32,7 +36,7 @@ export class TicketService {
       id: 2,
       title: 'Ticket 2',
       description: 'Descrição do ticket 2',
-      status: 'Aberto',
+      status: 'Em Progresso',
       createdAt: new Date()
     },
     {
@@ -56,6 +60,27 @@ export class TicketService {
     
     // When backend is ready, uncomment this:
     // return this.http.post<Ticket>(this.apiUrl, ticket);
+  }
+
+  updateTicketStatus(ticketId: number, newStatus: TicketStatus): Observable<Ticket> {
+    const ticket = this.tickets.find(t => t.id === ticketId);
+    if (ticket) {
+      ticket.status = newStatus;
+      if (newStatus === 'Fechado') {
+        ticket.closedAt = new Date();
+      }
+    }
+    return of(ticket!);
+  }
+
+  closeTicket(ticketId: number, comment: string): Observable<Ticket> {
+    const ticket = this.tickets.find(t => t.id === ticketId);
+    if (ticket) {
+      ticket.status = 'Fechado';
+      ticket.closedAt = new Date();
+      ticket.closingComment = comment;
+    }
+    return of(ticket!);
   }
 
 }
