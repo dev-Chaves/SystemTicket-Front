@@ -1,6 +1,6 @@
 <div class="ticket-list-container">
     <div class="ticket-header">
-        <button class="create-ticket-btn" (click)="openCreateTicketModal()">
+        <button class="create-ticket-btn" (click)="openModal()">
             <i class="fas fa-plus"></i>
             Criar Ticket
         </button>
@@ -27,3 +27,9 @@
         </tbody>
     </table>
 </div>
+
+<app-modal 
+    *ngIf="showModal"
+    (closeModal)="closeModal()"
+    (ticketCreated)="onTicketCreated($event)">
+</app-modal>

@@ -1,23 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService, Ticket } from '../../../services/ticket.service';
 import { CommonModule } from '@angular/common';
+import { TicketService, Ticket } from '../../../services/ticket.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-ticket-list',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, ModalComponent],
   templateUrl: './ticket-list.component.html',
-  styleUrl: './ticket-list.component.css'
+  styleUrls: ['./ticket-list.component.css']
 })
-export class TicketListComponent implements OnInit{
+export class TicketListComponent implements OnInit {
   tickets: Ticket[] = [];
+  showModal = false;
 
   constructor(private ticketService: TicketService) {}
 
-  ngOnInit(): void {
-    this.ticketService.getTickets().subscribe((tickets) => this.tickets = tickets);
+  ngOnInit() {
+    this.loadTickets();
   }
 
-  openCreateTicketModal() {
-    console.log('Opening create ticket modal');
+  loadTickets() {
+    this.ticketService.getTickets().subscribe(tickets => {
+      this.tickets = tickets;
+    });
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  onTicketCreated(ticket: Ticket) {
+    this.loadTickets(); // Reload tickets after creation
+    this.closeModal();
   }
 }
