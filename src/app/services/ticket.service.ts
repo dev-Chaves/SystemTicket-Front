@@ -10,6 +10,7 @@ export interface Ticket {
   description: string;
   status: TicketStatus;
   createdAt: Date;
+  updatedAt: Date;
   closedAt?: Date;
   closingComment?: string;
 }
@@ -30,21 +31,24 @@ export class TicketService {
       title: 'Ticket 1',
       description: 'Descrição do ticket 1',
       status: 'Aberto',
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       id: 2,
       title: 'Ticket 2',
       description: 'Descrição do ticket 2',
       status: 'Em Progresso',
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       id:13123123,
       title: 'Ticket 1',
       description: 'Descrição do ticket 1',
       status: 'Aberto',
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
 
   ]
