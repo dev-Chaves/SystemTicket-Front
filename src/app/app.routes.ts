@@ -7,5 +7,5 @@ export const routes: Routes = [
     {path: 'login', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'admin/dashboard', component: DashboardComponent},
-    {path: '/dashboard', component: DashboardComponent}
+    {path: 'dashboard', component: DashboardComponent}
 ];

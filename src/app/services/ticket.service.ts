@@ -70,13 +70,14 @@ export class TicketService {
     const ticket = this.tickets.find(t => t.id === ticketId);
     if (ticket) {
       ticket.status = newStatus;
+      ticket.updatedAt = new Date();
       if (newStatus === 'Fechado') {
         ticket.closedAt = new Date();
       }
     }
     return of(ticket!);
   }
-
+  
   closeTicket(ticketId: number, comment: string): Observable<Ticket> {
     const ticket = this.tickets.find(t => t.id === ticketId);
     if (ticket) {
