@@ -22,6 +22,7 @@ export class TicketListComponent implements OnInit {
   statusOptions: TicketStatus[] = ['Aberto', 'Em Progresso', 'Fechado'];
   showNotification = false;
   notificationMessage = '';
+  isAdmin: boolean = true;
 
   constructor(private ticketService: TicketService) {}
 
