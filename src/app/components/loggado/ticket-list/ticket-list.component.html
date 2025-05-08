@@ -27,7 +27,7 @@
                 <th>Descrição</th>
                 <th>Status</th>
                 <th>Criado em</th>
-                <th>Ações</th>
+                <th *ngIf="isAdmin">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                 <td>{{ticket.id}}</td>
                 <td>{{ticket.title}}</td>
                 <td>{{ticket.description}}</td>
-                <td>
+                <td *ngIf="isAdmin">
                     <select 
                         [ngModel]="ticket.status"
                         (ngModelChange)="onStatusChange(ticket.id, $event)"
@@ -47,8 +47,12 @@
                         </option>
                     </select>
                 </td>
+                <td *ngIf="!isAdmin">
+                    {{ticket.status}}
+                </td>
                 <td>{{ticket.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
-                <td>
+                <td>{{ticket.updatedAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td *ngIf="isAdmin">
                     <button 
                         *ngIf="ticket.status !== 'Fechado'"
                         class="close-btn" 
