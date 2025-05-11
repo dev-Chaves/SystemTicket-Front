@@ -4,8 +4,13 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
            <input type="text" placeholder="Insira seu usuário" formControlName="usersName">
            <input type="password" placeholder="*******" formControlName="password">
-           <input type="text" placeholder="Insira o token" formControlName="token"> 
-           <button type="submit">Registrar</button>
+           <input type="text" placeholder="Insira o token" formControlName="token">
+           <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+           <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+           <button type="submit" [disabled]="!registerForm.valid">Registrar</button>
+           <div class="login-link">
+               <a routerLink="/login">Já tem uma conta? Faça login</a>
+           </div>
         </form>
     </div>
 </div>

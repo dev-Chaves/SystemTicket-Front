@@ -9,7 +9,8 @@
 .login-form{
     display: flex;
     flex-direction: column;
-    gap: 12px
+    gap: 12px;
+    width: 300px;
 }
 
 input{
@@ -25,9 +26,16 @@ button{
     background-color: var(--primary-color);
     color: #fff;
     transition: background 0.3s, border-color 0.3s;
+    cursor: pointer;
 }
 
-button:hover{
+button:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
     background-color: #232323;
     border-color: #232323;
 }
@@ -36,4 +44,24 @@ h1{
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 16px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.register-link {
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
 }

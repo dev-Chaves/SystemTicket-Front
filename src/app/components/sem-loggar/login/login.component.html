@@ -3,8 +3,12 @@
         <h1>Sign-in</h1>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
            <input type="text" placeholder="Insira seu usuário" formControlName="usersName">
-           <input type="password" placeholder="*******" formControlName="password"> 
-           <button type="submit">Entrar</button>
+           <input type="password" placeholder="*******" formControlName="password">
+           <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+           <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
+           <div class="register-link">
+               <a routerLink="/register">Não tem uma conta? Registre-se</a>
+           </div>
         </form>
     </div>
 </div>
