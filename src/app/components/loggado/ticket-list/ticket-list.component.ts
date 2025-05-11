@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TicketService, Ticket, TicketStatus } from '../../../services/ticket.service';
 import { ModalComponent } from '../modal/modal.component';
 import { CloseTicketModalComponent } from '../close-ticket-modal/close-ticket-modal.component';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -22,11 +23,15 @@ export class TicketListComponent implements OnInit {
   statusOptions: TicketStatus[] = ['Aberto', 'Em Progresso', 'Fechado'];
   showNotification = false;
   notificationMessage = '';
-  isAdmin: boolean = true;
+  isAdmin: boolean = false;
 
-  constructor(private ticketService: TicketService) {}
+  constructor(
+    private ticketService: TicketService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
+    this.isAdmin = this.authService.isAdmin();
     this.loadTickets();
   }
 

@@ -31,9 +31,17 @@ export class AuthService {
       }
     ).pipe(
       tap(response => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('user', JSON.stringify(response.user));
+        console.log('Resposta do login:', response);
+        if (response) {
+          localStorage.setItem('user', JSON.stringify(response));
+          
+          if (response.usersRole === 'ADMIN') {
+            console.log('Redirecionando para dashboard admin');
+            this.router.navigate(['/admin/dashboard']);
+          } else {
+            console.log('Redirecionando para dashboard normal');
+            this.router.navigate(['/dashboard']);
+          }
         }
       }),
       catchError(error => throwError(() => error))
@@ -54,16 +62,21 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('token');
+    return !!localStorage.getItem('user');
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('token');
+  getUser(): any {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
+  }
+
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user ? user.usersRole === 'ADMIN' : false;
   }
 }

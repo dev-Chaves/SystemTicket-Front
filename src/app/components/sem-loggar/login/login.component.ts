@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login-sem-loggar',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -29,19 +29,16 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { usersName, password } = this.loginForm.value;
-      console.log('Login attempt:', { usersName, password });
       
       this.authService.login(usersName, password).subscribe({
-        next: () => {
-          this.router.navigate(['/dashboard']);
-        },
         error: (error) => {
-          console.error('Login error:', error);
-          this.errorMessage = error.error.message || 'Erro ao fazer login. Tente novamente.';
+          if (error.status === 403) {
+            this.errorMessage = 'Usuário ou senha inválidos';
+          } else {
+            this.errorMessage = 'Erro ao fazer login. Tente novamente.';
+          }
         }
       });
-    } else {
-      console.log('Form validation errors:', this.loginForm.errors);
     }
   }
 }
